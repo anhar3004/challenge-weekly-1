@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 /*
   ubah component dibawah sesuai spesifikasi berikut:
@@ -16,6 +16,8 @@ import React, { Fragment } from 'react'
 */
 
 function InputText() {
+  const [string, setString] = useState('Show Password')
+  const [text, setText] = useState('password')
   /*
     callback dari onChange
     bisa menerima argument event
@@ -23,10 +25,16 @@ function InputText() {
     tapi tidak semua event memiliki
     target.value
   */
-  function handleInputTextChange() {
-    //
+  function handleInputTextChange(e) {
+    console.log(e.target.value)
   }
 
+  function handleClick() {
+    const newString = string === 'Show Password' ? 'Hide Password' : 'Show Password'
+    setString(newString)
+    const newText = text === 'password' ? 'text' : 'password'
+    setText(newText)
+  }
   /*
     attribut onChange menerima callback
     handleInputTextChange
@@ -34,12 +42,17 @@ function InputText() {
   return (
     <Fragment>
       <input
-        type="password" // ini adalah attribute type ganti dengan variable state dari useState
+        type={text} // ini adalah attribute type ganti dengan variable state dari useState
         onChange={handleInputTextChange}
       />
-      <button type="button">
-        Show Password
+
+      <button
+        type="button"
+        onClick={handleClick}
+      >
+        {string}
       </button>
+
     </Fragment>
   )
 }

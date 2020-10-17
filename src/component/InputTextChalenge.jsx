@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 /*
   ubah component dibawah sesuai spesifikasi berikut:
@@ -14,8 +14,10 @@ function InputText() {
     perhatikan bahwa tidak semua event memiliki
     target.value
   */
+  const [inputValue, setInputValue] = useState('[GANTI SAYA]')
+
   function handleInputTextChange(e) {
-    console.log(e.target.value)
+    setInputValue(e.target.value)
   }
 
   /*
@@ -27,7 +29,9 @@ function InputText() {
       [GANTI SAYA]
       <input
         type="text"
+        value={inputValue}
         onChange={handleInputTextChange}
+
       />
     </div>
   )
