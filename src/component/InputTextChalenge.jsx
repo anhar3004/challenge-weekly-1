@@ -14,7 +14,7 @@ function InputText() {
     perhatikan bahwa tidak semua event memiliki
     target.value
   */
-  const [inputValue, setInputValue] = useState('[GANTI SAYA]')
+  const [inputValue, setInputValue] = useState('')
 
   function handleInputTextChange(e) {
     setInputValue(e.target.value)
@@ -26,12 +26,12 @@ function InputText() {
   */
   return (
     <div>
-      [GANTI SAYA]
+      {inputValue}
+      <br />
       <input
         type="text"
         value={inputValue}
         onChange={handleInputTextChange}
-
       />
     </div>
   )
